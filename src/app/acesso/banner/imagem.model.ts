@@ -5,4 +5,4 @@ class Imagem{
     ){}
 }
 
-export { Imagem }
+export { Imagem };

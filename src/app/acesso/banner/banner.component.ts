@@ -8,10 +8,12 @@ import { Imagem } from './imagem.model';
   styleUrls: ['./banner.component.css'],
   animations: [
     trigger('banner', [ /* Nome da trigger que será conectada com o html */ 
-      state('escondido', style({ /* Nome do estado e uma obj literal com atributos css que indicara a animação que ira ocorrer com o componente */
+      state('escondido', style({ /* Nome do estado e uma obj literal com atributos css que indicara 
+        a animação que ira ocorrer com o componente */
         opacity: 0
       })),
-      state('visivel', style({ /* Nome do estado e uma obj literal com atributos css que indicara a animação que ira ocorrer com o componente */
+      state('visivel', style({ /* Nome do estado e uma obj literal com atributos css que 
+        indicara a animação que ira ocorrer com o componente */
         opacity: 1
       })),
       transition('escondido <=> visivel', animate('2s ease-in'))
@@ -36,7 +38,7 @@ export class BannerComponent implements OnInit {
     setTimeout(() => this.logicaRotacao(), 3000);
   }
 
-  public logicaRotacao(): void{
+  public logicaRotacao(): void {
     let idx: number;
     for (let i: number = 0; i < 5; i++) {
       if (this.imagens[i].estado === 'visivel') {
