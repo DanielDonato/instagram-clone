@@ -12,7 +12,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       })),
       transition('void => criado', [ // void -> estado reservado do angular para quando o elemento ainda nao esta no DOM
         style({opacity: 0, transform: 'translate(-50px, 0)'}),
-        animate('500ms 1s ease-in-out') // duracao, delay, aceleração
+        animate('500ms 0s ease-in-out') // duracao, delay, aceleração
       ])
     ]),
     trigger('animacao-painel', [
@@ -21,7 +21,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       })),
       transition('void => criado', [
         style({opacity: 0, transform: 'translate(50px, 0)'}),
-        animate('500ms 1s ease-in-out')
+        animate('500ms 0s ease-in-out')
       ])
     ])
   ]
@@ -31,9 +31,15 @@ export class AcessoComponent implements OnInit {
   public estadoBanner: string = 'criado';
   public estadoPainel: string = 'criado';
 
+  public cadastro: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public exibirPainel(event: string): void {
+    this.cadastro = event === 'cadastro';
   }
 
 }
