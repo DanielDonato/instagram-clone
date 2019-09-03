@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { Usuario } from '../usuario.model';
 
+import { Autenticacao } from '../../autenticacao.service';
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -10,7 +12,9 @@ import { Usuario } from '../usuario.model';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private autenticacao: Autenticacao
+  ) { }
 
   @Output()
   public exibirPainel: EventEmitter<string> = new EventEmitter<string>();
@@ -38,7 +42,7 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     );
     console.log(usuario);
-    
+    this.autenticacao.cadastrarUsuario(usuario);
   }
 
 }
