@@ -35,14 +35,15 @@ export class CadastroComponent implements OnInit {
 
   public cadastrarUsuario(): void {
     console.log(this.formulario);
-    let usuario: Usuario = new Usuario(
+    const usuario: Usuario = new Usuario(
       this.formulario.value.email,
       this.formulario.value.nome_completo,
       this.formulario.value.nome_usuario,
       this.formulario.value.senha
     );
     console.log(usuario);
-    this.autenticacao.cadastrarUsuario(usuario);
+    this.autenticacao.cadastrarUsuario(usuario)
+      .then(() => this.exibirPainelLogin());
   }
 
 }
